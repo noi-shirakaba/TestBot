@@ -1,0 +1,26 @@
+version: '3'
+services:
+  back:
+    image: 821922595347.dkr.ecr.ap-northeast-1.amazonaws.com/back:latest
+    # build: ./back
+    command: python3 manage.py runserver 0.0.0.0:8000
+    # volumes:
+    #   - :fs-110ba531:/ efs
+    # volumes:
+    #   - fs-110ba531:/code
+    # volumes:
+    #   - ./back:/code
+    ports:
+      - "8000:8000"
+  front:
+    image: 821922595347.dkr.ecr.ap-northeast-1.amazonaws.com/front:latest
+    # build:
+    #   context: ./front
+    #   dockerfile: Dockerfile
+    # volumes:
+    #  - ./front:/usr/src/app
+    # command: sh -c "cd workplace && yarn start"
+    # command: yarn start
+    ports:
+     - "3000:3000"
+    # tty: true
